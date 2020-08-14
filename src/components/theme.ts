@@ -4,6 +4,8 @@ interface ITheme {
     white: string;
     primary: string;
     secondary: string;
+    dangerPrimary: string;
+    dangerSecondary: string;
   };
 }
 
@@ -13,6 +15,8 @@ let theme: ITheme = {
     white: "#ffffff",
     primary: "#66cc66",
     secondary: "#33a8d5",
+    dangerPrimary: "#D9984F",
+    dangerSecondary: "#D9534F",
   },
 };
 

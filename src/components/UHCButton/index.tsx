@@ -3,23 +3,37 @@ import { SButton, SSpan } from "./style";
 
 interface IProps {
   text: string;
-  type?: "primary" | "secondary";
-  onClick: (event: React.MouseEvent) => void;
+  buttonType?: "primary" | "secondary" | "danger";
+  size?: "big" | "small";
+  disabled?: boolean;
+  onPress: (event: React.MouseEvent) => void;
 }
 const UHCButton: React.FunctionComponent<IProps> = ({
   text,
-  type,
-  onClick,
+  buttonType,
+  size,
+  disabled,
+  onPress,
 }) => {
   return (
-    <SButton onClick={onClick}>
-      <SSpan type={type}> {text}</SSpan>
+    <SButton
+      buttonType={buttonType}
+      onClick={onPress}
+      size={size}
+      disabled={disabled}
+    >
+      <SSpan buttonType={buttonType} disabled={disabled}>
+        {" "}
+        {text}
+      </SSpan>
     </SButton>
   );
 };
 
 UHCButton.defaultProps = {
-  type: "primary",
+  buttonType: "primary",
+  size: "big",
+  disabled: false,
 };
 
 export default UHCButton;
