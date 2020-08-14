@@ -1,0 +1,52 @@
+{
+  "name": "uhc-components-react",
+  "version": "1.0.0",
+  "description": "UHC reusable React components for faster and easier web development",
+  "main": "./src/components/index.ts",
+  "scripts": {
+    "start": "styleguidist server",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dcolmenares-conectate/uhc-components-react.git"
+  },
+  "keywords": [
+    "UHC",
+    "component",
+    "react"
+  ],
+  "author": "Daniel Colmenares Salamanca (Conéctate)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dcolmenares-conectate/uhc-components-react/issues"
+  },
+  "homepage": "https://github.com/dcolmenares-conectate/uhc-components-react#readme",
+  "peerDependencies": {
+    "classnames": "^2.x",
+    "react": "^16.x",
+    "react-dom": "^16.x"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "@emotion/core": "^10.0.34",
+    "@emotion/styled": "^10.0.27",
+    "@storybook/addon-actions": "^6.0.5",
+    "@storybook/addon-essentials": "^6.0.5",
+    "@storybook/addon-links": "^6.0.5",
+    "@storybook/react": "^6.0.5",
+    "@types/classnames": "^2.2.10",
+    "babel-loader": "^8.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-is": "^16.13.1"
+  },
+  "dependencies": {
+    "@types/node": "^14.0.27",
+    "@types/react": "^16.9.46",
+    "@types/react-dom": "^16.9.8"
+  }
+}
