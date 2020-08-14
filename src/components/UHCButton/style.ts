@@ -1,11 +1,14 @@
 import styled from "@emotion/styled";
 import theme from "../theme";
+import "../global.css";
 
-interface SpanProps {
-  type?: "primary" | "secondary";
+type IType = "primary" | "secondary" | undefined;
+
+interface ISpanProps {
+  type?: IType;
 }
 
-const getSpanColor = (type: string) => {
+const getSpanColor = (type: IType) => {
   switch (type) {
     case "secondary":
       return theme.color.black;
@@ -14,7 +17,7 @@ const getSpanColor = (type: string) => {
   }
 };
 
-const getSpanBackground = (type: string) => {
+const getSpanBackground = (type: IType) => {
   switch (type) {
     case "secondary":
       return theme.color.white;
@@ -46,10 +49,11 @@ export const SButton = styled.button`
   }
 `;
 
-export const SSpan = styled.span<SpanProps>`
+export const SSpan = styled.span<ISpanProps>`
   display: block;
   padding: 0.5em 1em;
 
+  font-family: "Titillium Web", sans-serif;
   font-weight: 600;
 
   border-radius: 50px;
