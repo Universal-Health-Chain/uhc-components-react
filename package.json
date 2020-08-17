@@ -4,7 +4,7 @@
   "description": "UHC reusable React components for faster and easier web development",
   "main": "./src/components/index.ts",
   "scripts": {
-    "start": "styleguidist server",
+    "start": "npm run storybook",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
