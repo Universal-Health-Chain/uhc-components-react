@@ -1,3 +1,4 @@
 import UHCButton from "./UHCButton";
- 
-export { UHCButton };
+import UHCInput from "./UHCInput";
+
+export { UHCButton, UHCInput };

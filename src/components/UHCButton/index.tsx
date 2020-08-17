@@ -8,6 +8,7 @@ interface IProps {
   disabled?: boolean;
   onPress: (event: React.MouseEvent) => void;
 }
+
 const UHCButton: React.FunctionComponent<IProps> = ({
   text,
   buttonType,
