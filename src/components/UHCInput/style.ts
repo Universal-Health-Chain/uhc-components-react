@@ -4,6 +4,7 @@ import "../global.css";
 
 interface IContainerProps {
   isFocused: boolean;
+  multiline?: boolean;
 }
 
 export const SContainer = styled.div<IContainerProps>`
@@ -15,7 +16,7 @@ export const SContainer = styled.div<IContainerProps>`
       ? `linear-gradient(to right, ${theme.color.primary}, ${theme.color.secondary})`
       : `grey`};
 
-  border-radius: 50px;
+  border-radius: ${(props) => (props.multiline ? "10px" : "50px")};
 `;
 
 export const SInput = styled.input`
@@ -34,4 +35,23 @@ export const SInput = styled.input`
 
   border: none;
   outline: none;
+`;
+
+export const STextArea = styled.textarea`
+  display: block;
+  padding: 0.5em 1em;
+  width: 17em;
+
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+
+  color: black;
+  background: white;
+
+  border-radius: 10px;
+
+  border: none;
+  outline: none;
+  resize: vertical;
 `;
