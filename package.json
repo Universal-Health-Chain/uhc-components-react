@@ -9,7 +9,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "build": "tsc --build && npm run copy",
-    "copy": "copyfiles src/**/*.css dist/"
+    "copy": "copyfiles -f src/**/*.css dist/"
   },
   "repository": {
     "type": "git",
