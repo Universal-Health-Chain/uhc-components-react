@@ -26,7 +26,7 @@ const Template = (args) => <UHCInput {...args} />;
 
 export const SingleLine = Template.bind({});
 SingleLine.args = {
-  placeholder: "Input...",
+  placeholder: "Email",
   getValue: (value) => {},
 };
 

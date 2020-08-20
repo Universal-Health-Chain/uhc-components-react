@@ -43,8 +43,8 @@ export const SInput = styled.input`
 
   &:not([value=""]) ~ label,
   &:focus ~ label {
-    top: -28px;
-    font-size: 14px;
+    top: -26px;
+    font-size: 12px;
   }
 `;
 
