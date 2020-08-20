@@ -16,7 +16,6 @@ export const SContainer = styled.div<IContainerProps>`
   display: inline-block;
   padding: 1px;
   position: relative;
-  margin: 1em 0 0 0 ;
 
   background: ${(props) =>
     props.isFocused
