@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import theme from "../theme";
+import theme from "uhc-themes";
 import "../global.css";
 
 interface IContainerProps {

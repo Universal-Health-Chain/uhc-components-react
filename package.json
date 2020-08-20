@@ -1,6 +1,6 @@
 {
   "name": "uhc-components-react",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "UHC reusable React components for faster and easier web development",
   "main": "/dist/index.js",
   "types": "dist/index.d.ts",
@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "@emotion/core": "^10.0.34",
-    "@emotion/styled": "^10.0.27"
+    "@emotion/styled": "^10.0.27",
+    "uhc-themes": "^1.0.1"
   }
 }
