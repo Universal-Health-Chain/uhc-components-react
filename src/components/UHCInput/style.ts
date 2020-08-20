@@ -5,6 +5,7 @@ import "../global.css";
 interface IContainerProps {
   isFocused: boolean;
   multiline?: boolean;
+  error?: string;
 }
 
 interface ILabelProps {
@@ -19,6 +20,8 @@ export const SContainer = styled.div<IContainerProps>`
   background: ${(props) =>
     props.isFocused
       ? `linear-gradient(to right, ${theme.color.primary}, ${theme.color.secondary})`
+      : props.error
+      ? `red`
       : `grey`};
 
   border-radius: ${(props) => (props.multiline ? "10px" : "50px")};
@@ -65,6 +68,12 @@ export const STextArea = styled.textarea`
   border: none;
   outline: none;
   resize: vertical;
+
+  &:not(:empty) ~ label,
+  &:focus ~ label {
+    top: -26px;
+    font-size: 12px;
+  }
 `;
 
 export const SLabel = styled.label<ILabelProps>`
@@ -78,4 +87,13 @@ export const SLabel = styled.label<ILabelProps>`
   font-size: 16px;
   transition: 0.2s;
   pointer-events: none;
+`;
+
+export const SError = styled.span`
+  display: block;
+  padding: 0.1em 1.5em;
+  color: red;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 300;
+  font-size: 12px;
 `;

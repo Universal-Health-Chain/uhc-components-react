@@ -19,6 +19,18 @@ export default {
         type: "boolean",
       },
     },
+    error: {
+      description: "Shows error under input",
+      control: "text",
+    },
+    format: {
+      description: "Defines the type of the input",
+      table: { defaultValue: { summary: "text" } },
+      control: {
+        type: "select",
+        options: ["text", "password", "number"],
+      },
+    },
   },
 };
 
@@ -28,6 +40,21 @@ export const SingleLine = Template.bind({});
 SingleLine.args = {
   placeholder: "Email",
   getValue: (value) => {},
+  format: "text"
+};
+
+export const ErrorInput = Template.bind({});
+ErrorInput.args = {
+  placeholder: "Email",
+  getValue: (value) => {},
+  error: "Este email no es valido",
+};
+
+export const PasswordInput = Template.bind({});
+PasswordInput.args = {
+  placeholder: "Password",
+  getValue: (value) => {},
+  format: "password",
 };
 
 export const MultiLine = Template.bind({});
