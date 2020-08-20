@@ -2,9 +2,6 @@
 
 UHC reusable React components for faster and easier web development.
 
-
----
-
 ## Installation
 
 Using npm:
@@ -13,15 +10,11 @@ Using npm:
 npm i uhc-components-react --save
 ```
 
----
-
 ## Import
 
 ```
 const {UHCButton, UHCInput, UHCIconButton} from "uhc-components-react"
 ```
-
----
 
 ## Storybook
 
