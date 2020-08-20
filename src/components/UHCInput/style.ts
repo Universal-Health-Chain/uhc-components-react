@@ -43,7 +43,8 @@ export const SInput = styled.input`
 
   &:not([value=""]) ~ label,
   &:focus ~ label {
-    top: -30px;
+    top: -28px;
+    font-size: 14px;
   }
 `;
 
@@ -68,7 +69,7 @@ export const STextArea = styled.textarea`
 
 export const SLabel = styled.label<ILabelProps>`
   position: absolute;
-  top: 0px;
+  top: 0;
   left: 0;
   padding: 0.5em 1.2em;
   color: grey;
