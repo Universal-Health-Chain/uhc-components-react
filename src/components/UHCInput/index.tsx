@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { SContainer, SInput, STextArea } from "./style";
+import { SContainer, SInput, STextArea, SLabel } from "./style";
 
 interface IProps {
   placeholder: string;
@@ -35,12 +35,12 @@ const UHCInput: React.FunctionComponent<IProps> = ({
     return (
       <SContainer isFocused={isFocused}>
         <SInput
-          placeholder={placeholder}
           value={value}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           onChange={(event) => setValue(event.target.value)}
         ></SInput>
+        <SLabel isFocused={isFocused}>{placeholder}</SLabel>
       </SContainer>
     );
   }

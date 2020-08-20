@@ -7,9 +7,14 @@ interface IContainerProps {
   multiline?: boolean;
 }
 
+interface ILabelProps {
+  isFocused: boolean;
+}
+
 export const SContainer = styled.div<IContainerProps>`
   display: inline-block;
   padding: 1px;
+  position: relative;
 
   background: ${(props) =>
     props.isFocused
@@ -35,6 +40,11 @@ export const SInput = styled.input`
 
   border: none;
   outline: none;
+
+  &:not([value=""]) ~ label,
+  &:focus ~ label {
+    top: -30px;
+  }
 `;
 
 export const STextArea = styled.textarea`
@@ -54,4 +64,17 @@ export const STextArea = styled.textarea`
   border: none;
   outline: none;
   resize: vertical;
+`;
+
+export const SLabel = styled.label<ILabelProps>`
+  position: absolute;
+  top: 0px;
+  left: 0;
+  padding: 0.5em 1.2em;
+  color: grey;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  transition: 0.2s;
+  pointer-events: none;
 `;
