@@ -28,7 +28,7 @@ export default {
       table: { defaultValue: { summary: "text" } },
       control: {
         type: "select",
-        options: ["text", "password", "number"],
+        options: ["text", "password", "number", "date", "time"],
       },
     },
   },
@@ -40,7 +40,7 @@ export const SingleLine = Template.bind({});
 SingleLine.args = {
   placeholder: "Email",
   getValue: (value) => {},
-  format: "text"
+  format: "text",
 };
 
 export const ErrorInput = Template.bind({});
@@ -55,6 +55,13 @@ PasswordInput.args = {
   placeholder: "Password",
   getValue: (value) => {},
   format: "password",
+};
+
+export const DateInput = Template.bind({});
+DateInput.args = {
+  placeholder: "Date",
+  getValue: (value) => {},
+  format: "date",
 };
 
 export const MultiLine = Template.bind({});

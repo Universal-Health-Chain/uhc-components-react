@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 import theme from "uhc-themes";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import "../global.css";
 
 interface IContainerProps {
@@ -45,6 +47,14 @@ export const SInput = styled.input`
   outline: none;
 
   &:not([value=""]) ~ label,
+  &:focus ~ label {
+    top: -26px;
+    font-size: 12px;
+  }
+
+`;
+
+export const SDatePicker = styled(DatePicker)`
   &:focus ~ label {
     top: -26px;
     font-size: 12px;

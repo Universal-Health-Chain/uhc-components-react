@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { SContainer, SInput, STextArea, SLabel, SError } from "./style";
+import moment from "moment";
+
+import {
+  SContainer,
+  SInput,
+  STextArea,
+  SDatePicker,
+  SLabel,
+  SError,
+} from "./style";
 
 interface IProps {
   placeholder: string;
@@ -39,21 +48,52 @@ const UHCInput: React.FunctionComponent<IProps> = ({
       </>
     );
   } else {
-    return (
-      <>
-        <SContainer isFocused={isFocused} error={error}>
-          <SInput
-            type={format}
-            value={value}
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
-            onChange={(event) => setValue(event.target.value)}
-          ></SInput>
-          <SLabel isFocused={isFocused}>{placeholder}</SLabel>
-        </SContainer>
-        {error && <SError>{error}</SError>}
-      </>
-    );
+    if (format === "date") {
+      return (
+        <>
+          <SContainer isFocused={isFocused} error={error}>
+            <SDatePicker
+              onKeyDown={(event) => {
+                console.log()
+                if (event.keyCode === 8) {
+                  setValue("");
+                }
+              }}
+              customInput={
+                <div>
+                  <SInput
+                    onFocus={() => setIsFocused(true)}
+                    onBlur={() => setIsFocused(false)}
+                    value={value}
+                  />
+                  <SLabel isFocused={isFocused}>{placeholder}</SLabel>
+                </div>
+              }
+              onChange={(date) => {
+                setValue(moment(date).format("DD/MM/YYYY"));
+              }}
+            ></SDatePicker>
+          </SContainer>
+          {error && <SError>{error}</SError>}
+        </>
+      );
+    } else {
+      return (
+        <>
+          <SContainer isFocused={isFocused} error={error}>
+            <SInput
+              type={format}
+              value={value}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
+              onChange={(event) => setValue(event.target.value)}
+            ></SInput>
+            <SLabel isFocused={isFocused}>{placeholder}</SLabel>
+          </SContainer>
+          {error && <SError>{error}</SError>}
+        </>
+      );
+    }
   }
 };
 
