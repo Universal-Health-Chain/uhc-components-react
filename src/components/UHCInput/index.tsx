@@ -54,7 +54,7 @@ const UHCInput: React.FunctionComponent<IProps> = ({
           <SContainer isFocused={isFocused} error={error}>
             <SDatePicker
               onKeyDown={(event) => {
-                console.log()
+                console.log();
                 if (event.keyCode === 8) {
                   setValue("");
                 }
@@ -70,7 +70,7 @@ const UHCInput: React.FunctionComponent<IProps> = ({
                 </div>
               }
               onChange={(date) => {
-                setValue(moment(date).format("DD/MM/YYYY"));
+                setValue(moment(date?.toString()).format("DD/MM/YYYY"));
               }}
             ></SDatePicker>
           </SContainer>
