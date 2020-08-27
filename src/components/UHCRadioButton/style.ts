@@ -18,6 +18,7 @@ export const SRadioButton = styled.div<IRadioProps>`
       ? `1px solid ${props.containerColorSelected}`
       : `1px solid ${props.containerColorUnselected}`};
   border-radius: 50px;
+  cursor: pointer;
 
   & > div {
     border-radius: 50px;
