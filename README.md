@@ -13,7 +13,7 @@ npm i uhc-components-react --save
 ## Import
 
 ```
-const {UHCButton, UHCInput, UHCIconButton} from "uhc-components-react"
+const { UHCButton, UHCInput, UHCIconButton, UHCRadioButton } from "uhc-components-react"
 ```
 
 ## Storybook
