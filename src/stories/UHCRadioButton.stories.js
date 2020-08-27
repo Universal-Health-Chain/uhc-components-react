@@ -1,5 +1,5 @@
 import React from "react";
-
+import theme from "uhc-themes";
 import { UHCRadioButton } from "../components";
 
 export default {
@@ -15,14 +15,17 @@ export default {
     },
     selectedColor: {
       description: "Internal color of the selected radio button",
+      table: { defaultValue: { summary: theme.color.tertiary } },
       control: "color",
     },
     containerColorSelected: {
       description: "Border color of the selected radio button",
+      table: { defaultValue: { summary: theme.color.tertiary } },
       control: "color",
     },
     containerColorUnselected: {
       description: "Border color of the unselected radio button",
+      table: { defaultValue: { summary: theme.color.gray } },
       control: "color",
     },
   },
