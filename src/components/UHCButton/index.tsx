@@ -4,7 +4,6 @@ import { SButton, SSpan } from "./style";
 interface IProps {
   text: string;
   buttonType?: "primary" | "secondary" | "danger";
-  size?: "big" | "small";
   disabled?: boolean;
   onPress: (event: React.MouseEvent) => void;
 }
@@ -12,7 +11,6 @@ interface IProps {
 const UHCButton: React.FunctionComponent<IProps> = ({
   text,
   buttonType,
-  size,
   disabled,
   onPress,
 }) => {
@@ -20,7 +18,6 @@ const UHCButton: React.FunctionComponent<IProps> = ({
     <SButton
       buttonType={buttonType}
       onClick={onPress}
-      size={size}
       disabled={disabled}
     >
       <SSpan buttonType={buttonType} disabled={disabled}>
@@ -33,7 +30,6 @@ const UHCButton: React.FunctionComponent<IProps> = ({
 
 UHCButton.defaultProps = {
   buttonType: "primary",
-  size: "big",
   disabled: false,
 };
 

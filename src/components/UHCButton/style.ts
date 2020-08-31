@@ -3,7 +3,6 @@ import theme from "uhc-themes";
 import "../global.css";
 
 type IButtonType = "primary" | "secondary" | "danger" | undefined;
-type ISize = "big" | "small" | undefined;
 
 interface ISpanProps {
   buttonType?: IButtonType;
@@ -12,7 +11,6 @@ interface ISpanProps {
 
 interface IButtonProps {
   buttonType?: IButtonType;
-  size?: ISize;
   disabled?: boolean;
 }
 
@@ -31,15 +29,6 @@ const getButtonBackground = (
       return `linear-gradient(to right, ${theme.color.dangerPrimary}, ${theme.color.dangerSecondary});`;
     default:
       return `linear-gradient(to right, ${theme.color.primary}, ${theme.color.secondary});`;
-  }
-};
-
-const getButtonSize = (size: ISize) => {
-  switch (size) {
-    case "small":
-      return "10em";
-    default:
-      return "15em";
   }
 };
 
@@ -81,7 +70,7 @@ const getSpanBackground = (
 
 export const SButton = styled.button<IButtonProps>`
   display: inline-block;
-  width: ${(props) => getButtonSize(props.size)};
+  width: 100%;
   padding: 1px;
 
   background: ${(props) =>
