@@ -30,7 +30,7 @@ export const SContainer = styled.div`
 export const SButton = styled.button`
   display: flex;
   justify-content: center;
-  width: 15em;
+  width: 100%;
   border: none;
   border-radius: 50px;
   text-decoration: none;
