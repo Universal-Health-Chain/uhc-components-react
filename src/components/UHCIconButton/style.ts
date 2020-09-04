@@ -6,8 +6,8 @@ export const SContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 2em;
-  height: 2em;
+  width: 5em;
+  height: 5em;
   padding: 1em;
   border-radius: 50px;
   cursor: pointer;

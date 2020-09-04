@@ -18,6 +18,7 @@ export const SContainer = styled.div<IContainerProps>`
   display: inline-block;
   padding: 1px;
   position: relative;
+  width: 100%;
 
   background: ${(props) =>
     props.isFocused
@@ -32,7 +33,7 @@ export const SContainer = styled.div<IContainerProps>`
 export const SInput = styled.input`
   display: block;
   padding: 0.5em 1em;
-  width: 17em;
+  width: 100%;
 
   font-family: "Titillium Web", sans-serif;
   font-weight: 300;
@@ -64,7 +65,7 @@ export const SDatePicker = styled(DatePicker)`
 export const STextArea = styled.textarea`
   display: block;
   padding: 0.5em 1em;
-  width: 17em;
+  width: 100%;
 
   font-family: "Titillium Web", sans-serif;
   font-weight: 300;
