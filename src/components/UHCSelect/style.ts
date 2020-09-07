@@ -52,3 +52,12 @@ export const SSelect = styled.ul<ISelectProps>`
   list-style-type: none;
   z-index: 0;
 `;
+
+export const SLabel = styled.label`
+  font-size: 12px;
+  padding: 0.5em 1.2em;
+  color: grey;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 300;
+  pointer-events: none;
+`;
