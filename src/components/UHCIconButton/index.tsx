@@ -1,11 +1,11 @@
 import React from "react";
 import { SContainer, SButton, SSpan } from "./style";
-import { ArrowRightIcon } from "./icons";
+import { ArrowRightIcon, ArrowLeftIcon } from "./icons";
 
-type IconType = "arrow-right";
+type IconType = "arrow-right" | "arrow-left";
 interface IProps {
   text?: string;
-  icon: IconType;
+  icon?: IconType;
   onPress: (event: React.MouseEvent) => void;
 }
 
@@ -13,6 +13,8 @@ const getIcon = (name: IconType) => {
   switch (name) {
     case "arrow-right":
       return ArrowRightIcon;
+    case "arrow-left":
+      return ArrowLeftIcon;
     default:
       throw new Error("An icon with this name doesn't exist");
   }
@@ -22,7 +24,7 @@ const UHCIconButton: React.FunctionComponent<IProps> = ({
   icon,
   onPress,
 }) => {
-  const Icon = getIcon(icon);
+  const Icon = icon ? getIcon(icon) : getIcon("arrow-right");
   if (text) {
     return (
       <SButton onClick={onPress}>
@@ -39,6 +41,10 @@ const UHCIconButton: React.FunctionComponent<IProps> = ({
       </SContainer>
     );
   }
+};
+
+UHCIconButton.defaultProps = {
+  icon: "arrow-right",
 };
 
 export default UHCIconButton;
