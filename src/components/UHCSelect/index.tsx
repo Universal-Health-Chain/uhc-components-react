@@ -5,33 +5,33 @@ import {
   SSelect,
   SText,
   SIcon,
+  SLabel,
 } from "./style";
 
 import { SmallArrowDownIcon } from "../UHCIconButton/icons";
-import { ISelectItemProps } from "../UHCSelectItem";
-
-interface IProps {
-  defaultValue?: string;
-  children:
-    | React.ReactElement<ISelectItemProps>
-    | React.ReactElement<ISelectItemProps>[];
-  getValue?: (value: string) => void;
-}
+import UHCSelectItem from "./UHCSelectItem";
 
 interface ISelectItem {
-  key: number;
+  text: string;
   value: string;
 }
 
+interface IProps {
+  label: string;
+  data: ISelectItem[];
+  defaultValue?: ISelectItem;
+  getValue?: (value: string) => void;
+}
+
 const UHCSelect: React.FunctionComponent<IProps> = ({
+  label,
   defaultValue,
-  children,
+  data,
   getValue,
 }) => {
-  const [selectedValue, setSelectedValue] = useState<ISelectItem>({
-    key: 0,
-    value: defaultValue ? defaultValue : "",
-  });
+  const [selectedValue, setSelectedValue] = useState<ISelectItem>(
+    defaultValue ? defaultValue : { text: "", value: "" }
+  );
 
   useEffect(() => {
     if (getValue) getValue(selectedValue.value);
@@ -39,32 +39,31 @@ const UHCSelect: React.FunctionComponent<IProps> = ({
 
   const [isListVisible, setIsListVisible] = useState<boolean>(false);
   return (
-    <SExternalContainer>
-      <SInternalContainer onClick={() => setIsListVisible(!isListVisible)}>
-        <SText> {selectedValue.value}</SText>
-        <SIcon>
-          <SmallArrowDownIcon size={"small"} />
-        </SIcon>
-        <SSelect visible={isListVisible}>
-          {" "}
-          {React.Children.map(
-            children,
-            (child: React.ReactElement<ISelectItemProps>) =>
-              React.cloneElement(child, {
-                key: child.props.key,
-                value: child.props.value,
-                returnValue: (key: number, value: string) =>
-                  setSelectedValue({ key, value }),
-              })
-          )}
-        </SSelect>
-      </SInternalContainer>
-    </SExternalContainer>
+    <>
+      <SLabel> {label}</SLabel>
+      <SExternalContainer>
+        <SInternalContainer onClick={() => setIsListVisible(!isListVisible)}>
+          <SText> {selectedValue.text}</SText>
+          <SIcon>
+            <SmallArrowDownIcon size={"small"} />
+          </SIcon>
+          <SSelect visible={isListVisible}>
+            {data.map((item: ISelectItem) => {
+              return (
+                <UHCSelectItem
+                  text={item.text}
+                  value={item.value}
+                  returnValue={(text, value) =>
+                    setSelectedValue({ text, value })
+                  }
+                ></UHCSelectItem>
+              );
+            })}
+          </SSelect>
+        </SInternalContainer>
+      </SExternalContainer>
+    </>
   );
-};
-
-UHCSelect.defaultProps = {
-  defaultValue: "Seleccione una opción",
 };
 
 export default UHCSelect;

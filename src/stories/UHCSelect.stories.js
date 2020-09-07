@@ -6,11 +6,14 @@ export default {
   title: "Example/UHCSelect",
   component: UHCSelect,
   argTypes: {
+    label: {
+      description: "Select label text",
+      control: "text",
+    },
     defaultValue: {
       description: "Initial selected value",
-      table: { defaultValue: { summary: "Seleccione una opción" } },
       control: {
-        type: "text",
+        type: "null",
       },
     },
 
@@ -24,16 +27,19 @@ export default {
 };
 
 const Template = (args) => (
-  <UHCSelect {...args}>
-    <UHCSelectItem key={0} value="Hehe" />
-    <UHCSelectItem key={1} value="Hoho" />
-    <UHCSelectItem key={2} value="Hihi" />
-  </UHCSelect>
+  <UHCSelect
+    data={[
+      { text: "Opcion 1", value: "1" },
+      { text: "Opcion 2", value: "2" },
+    ]}
+    {...args}
+  ></UHCSelect>
 );
 
 export const WithDefaultValue = Template.bind({});
 WithDefaultValue.args = {
-  defaultValue: "Valor predefinido",
+  label: "Select",
+  defaultValue: { text: "Seleccione una opcion", value: null },
 };
 
 export const WithoutDefaultValue = Template.bind({});
