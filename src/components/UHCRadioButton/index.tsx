@@ -4,9 +4,9 @@ import { SRadioButton } from "./style";
 interface IProps {
   isSelected?: boolean;
   onClick?: () => void;
-  selectedColor: string;
-  containerColorUnselected: string;
-  containerColorSelected: string;
+  selectedColor?: string;
+  containerColorUnselected?: string;
+  containerColorSelected?: string;
 }
 
 const UHCRadioButton: React.FunctionComponent<IProps> = ({

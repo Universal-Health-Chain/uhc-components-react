@@ -2,9 +2,9 @@ import styled from "@emotion/styled";
 
 interface IRadioProps {
   isSelected?: boolean;
-  selectedColor: string;
-  containerColorUnselected: string;
-  containerColorSelected: string;
+  selectedColor?: string;
+  containerColorUnselected?: string;
+  containerColorSelected?: string;
 }
 
 export const SRadioButton = styled.div<IRadioProps>`
