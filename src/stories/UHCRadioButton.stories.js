@@ -13,6 +13,12 @@ export default {
         type: "boolean",
       },
     },
+    onClick: {
+      description: "Function to call on radio click",
+      control: {
+        type: "null",
+      },
+    },
     selectedColor: {
       description: "Internal color of the selected radio button",
       table: { defaultValue: { summary: theme.color.tertiary } },
@@ -33,9 +39,13 @@ export default {
 
 const Template = (args) => <UHCRadioButton {...args} />;
 
+const onClick = () => {
+  console.log("No me gusta");
+};
 export const Selected = Template.bind({});
 Selected.args = {
   isSelected: true,
+  onClick: onClick,
 };
 
 export const Unselected = Template.bind({});
