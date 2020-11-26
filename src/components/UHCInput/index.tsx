@@ -16,6 +16,7 @@ interface IProps {
   multiline?: boolean;
   error?: string;
   format?: string;
+  name?: string;
 }
 
 const UHCInput: React.FunctionComponent<IProps> = ({
@@ -24,6 +25,7 @@ const UHCInput: React.FunctionComponent<IProps> = ({
   multiline,
   error,
   format,
+  name,
 }) => {
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [value, setValue] = useState<string>("");
@@ -41,6 +43,7 @@ const UHCInput: React.FunctionComponent<IProps> = ({
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
             onChange={(event) => setValue(event.target.value)}
+            name={name}
           ></STextArea>
           <SLabel isFocused={isFocused}>{placeholder}</SLabel>
         </SContainer>
@@ -65,6 +68,7 @@ const UHCInput: React.FunctionComponent<IProps> = ({
                     onFocus={() => setIsFocused(true)}
                     onBlur={() => setIsFocused(false)}
                     value={value}
+                    name={name}
                   />
                   <SLabel isFocused={isFocused}>{placeholder}</SLabel>
                 </div>
