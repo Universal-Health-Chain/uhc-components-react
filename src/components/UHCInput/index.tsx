@@ -91,6 +91,7 @@ const UHCInput: React.FunctionComponent<IProps> = ({
               onFocus={() => setIsFocused(true)}
               onBlur={() => setIsFocused(false)}
               onChange={(event) => setValue(event.target.value)}
+              name={name}
             ></SInput>
             <SLabel isFocused={isFocused}>{placeholder}</SLabel>
           </SContainer>
