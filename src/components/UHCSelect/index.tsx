@@ -8,7 +8,7 @@ import {
   SLabel,
 } from "./style";
 
-import { SmallArrowDownIcon } from "../UHCIconButton/icons";
+import { SmallArrowDownIcon } from "../icons";
 import UHCSelectItem from "./UHCSelectItem";
 
 interface ISelectItem {

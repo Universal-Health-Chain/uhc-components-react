@@ -3,7 +3,7 @@ import UHCInput from "./UHCInput";
 import UHCIconButton from "./UHCIconButton";
 import UHCRadioButton from "./UHCRadioButton";
 import UHCSelect from "./UHCSelect";
-
+import UHCIcon from "./UHCIcon";
 
 export {
   UHCButton,
@@ -11,4 +11,5 @@ export {
   UHCIconButton,
   UHCRadioButton,
   UHCSelect,
+  UHCIcon,
 };

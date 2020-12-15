@@ -1,6 +1,6 @@
 import React from "react";
 import { SContainer, SButton, SSpan } from "./style";
-import { ArrowRightIcon, ArrowLeftIcon } from "./icons";
+import { ArrowRightIcon, ArrowLeftIcon } from "../icons";
 
 type IconType = "arrow-right" | "arrow-left";
 interface IProps {
