@@ -1,11 +1,21 @@
 import React from "react";
-import { SContainer, SButton, SSpan } from "./style";
+import {
+  SContainer,
+  SButton,
+  SSpan,
+  SBadge,
+  SIconBadge,
+  SInnerContainer
+} from "./style";
 import { ArrowRightIcon, ArrowLeftIcon } from "../icons";
 
-type IconType = "arrow-right" | "arrow-left";
+type IconType = "arrow-right" | "arrow-left" | "messages";
 interface IProps {
   text?: string;
   icon?: IconType;
+  buttonType?: "primary" | "secondary" | "danger";
+  disabled?: boolean;
+  badgeNumber?: number;
   onPress: (event: React.MouseEvent) => void;
 }
 
@@ -22,22 +32,77 @@ const getIcon = (name: IconType) => {
 const UHCIconButton: React.FunctionComponent<IProps> = ({
   text,
   icon,
+  buttonType,
+  disabled,
   onPress,
+  badgeNumber
 }) => {
   const Icon = icon ? getIcon(icon) : getIcon("arrow-right");
   if (text) {
     return (
-      <SButton onClick={onPress}>
-        <SSpan>
-          <Icon size="small"> </Icon>
+      <SButton onClick={onPress} disabled={disabled} buttonType={buttonType}>
+        <SSpan buttonType={buttonType} disabled={disabled}>
+          <Icon
+            size="small"
+            color={(() => {
+              if (disabled) return "grey";
+
+              switch (buttonType) {
+                case "secondary":
+                  return "black";
+                case "primary":
+                case "danger":
+                default:
+                  return "white";
+              }
+            })()}
+          />
           {text}
+          {!!badgeNumber && (
+            <SBadge
+              buttonType={buttonType}
+              disabled={disabled}
+              badgeNumber={badgeNumber}
+            >
+              {badgeNumber > 99 ? "99+" : badgeNumber}
+            </SBadge>
+          )}
         </SSpan>
       </SButton>
     );
   } else {
     return (
-      <SContainer onClick={onPress}>
-        <Icon size="big"></Icon>
+      <SContainer buttonType={buttonType} disabled={disabled} onClick={onPress}>
+        <SInnerContainer
+          buttonType={buttonType}
+          disabled={disabled}
+          onClick={onPress}
+        >
+          <Icon
+            size="big"
+            color={(() => {
+              if (disabled) return "grey";
+
+              switch (buttonType) {
+                case "secondary":
+                  return "black";
+                case "primary":
+                case "danger":
+                default:
+                  return "white";
+              }
+            })()}
+          />
+        </SInnerContainer>
+        {!!badgeNumber && (
+          <SIconBadge
+            buttonType={buttonType}
+            disabled={disabled}
+            badgeNumber={badgeNumber}
+          >
+            {badgeNumber > 99 ? "99+" : badgeNumber}
+          </SIconBadge>
+        )}
       </SContainer>
     );
   }
@@ -45,6 +110,9 @@ const UHCIconButton: React.FunctionComponent<IProps> = ({
 
 UHCIconButton.defaultProps = {
   icon: "arrow-right",
+  buttonType: "primary",
+  disabled: false,
+  badgeNumber: 0
 };
 
 export default UHCIconButton;

@@ -8,36 +8,56 @@ export default {
   argTypes: {
     text: {
       description: "Button's text",
-      control: "text",
+      control: "text"
     },
     icon: {
       description: "Button's icon",
       table: { defaultValue: { summary: "arrow-right" } },
       control: {
         type: "select",
-        options: ["arrow-right", "arrow-left"],
-      },
+        options: ["arrow-right", "arrow-left"]
+      }
+    },
+    buttonType: {
+      description: "Button's visual variant",
+      table: { defaultValue: { summary: "primary" } },
+      control: {
+        type: "select",
+        options: ["primary", "secondary", "danger"]
+      }
+    },
+    disabled: {
+      description: "Defines if the button can be clicked",
+      table: { defaultValue: { summary: "false" } },
+      control: {
+        type: "boolean"
+      }
     },
     onPress: {
       description: "Action to be called on button click",
       control: {
-        type: null,
-      },
-    },
-  },
+        type: null
+      }
+    }
+  }
 };
 
-const Template = (args) => <UHCIconButton {...args} />;
+const Template = args => <UHCIconButton {...args} />;
 
 export const Textless = Template.bind({});
 Textless.args = {
   icon: "arrow-right",
-  onPress: () => {},
+  buttonType: "primary",
+  badgeNumber: 3,
+  onPress: () => {}
 };
 
 export const WithText = Template.bind({});
 WithText.args = {
-  text: "Hello",
+  text: "Primary",
   icon: "arrow-right",
-  onPress: () => {},
+  buttonType: "primary",
+  disabled: false,
+  badgeNumber: 100,
+  onPress: () => {}
 };
