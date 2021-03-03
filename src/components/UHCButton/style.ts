@@ -116,9 +116,9 @@ export const SButton = styled.button<IButtonProps>`
 
   background: ${props => getButtonBackground(props.disabled, props.buttonType)};
 
-  font-size: 16px;
+  font-size: 14px;
   border: none;
-  border-radius: 50px;
+  border-radius: 8px;
   text-decoration: none;
   cursor: pointer;
   pointer-events: ${props => (props.disabled ? "none" : "auto")};
@@ -140,7 +140,7 @@ export const SSpan = styled.span<ISpanProps>`
   font-family: "Titillium Web", sans-serif;
   font-weight: 600;
 
-  border-radius: 50px;
+  border-radius: 8px;
 
   color: ${props => getSpanColor(props.disabled, props.buttonType)};
   background: ${props => getSpanBackground(props.disabled, props.buttonType)};
