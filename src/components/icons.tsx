@@ -3,64 +3,64 @@ import React from "react";
 export type IconSize = "big" | "small" | undefined;
 
 //@ts-ignore
-import Search from "../assets/search.svg";
+import Search from "./assets/search.svg";
 //@ts-ignore
-import View from "../assets/view.svg";
+import View from "./assets/view.svg";
 //@ts-ignore
-import More from "../assets/more.svg";
+import More from "./assets/more.svg";
 //@ts-ignore
-import RequestDocument from "../assets/request-document.svg";
+import RequestDocument from "./assets/request-document.svg";
 //@ts-ignore
-import DonorInformation from "../assets/donor-information.svg";
+import DonorInformation from "./assets/donor-information.svg";
 //@ts-ignore
-import Consent from "../assets/consent.svg";
+import Consent from "./assets/consent.svg";
 
 //@ts-ignore
-import GetDocument from "../assets/get-document.svg";
+import GetDocument from "./assets/get-document.svg";
 //@ts-ignore
-import NewDocument from "../assets/new-document.svg";
+import NewDocument from "./assets/new-document.svg";
 //@ts-ignore
-import ConnectionDetails from "../assets/connection-details.svg";
+import ConnectionDetails from "./assets/connection-details.svg";
 //@ts-ignore
-import NewMessages from "../assets/new-messages.svg";
+import NewMessages from "./assets/new-messages.svg";
 //@ts-ignore
-import Document from "../assets/document.svg";
+import Document from "./assets/document.svg";
 //@ts-ignore
-import ClinicalTrials from "../assets/clinical-trials.svg";
+import ClinicalTrials from "./assets/clinical-trials.svg";
 //@ts-ignore
-import SendMessage from "../assets/send-message.svg";
+import SendMessage from "./assets/send-message.svg";
 //@ts-ignore
-import ImagingStudies from "../assets/imaging-studies.svg";
+import ImagingStudies from "./assets/imaging-studies.svg";
 //@ts-ignore
-import NewAppointment from "../assets/new-appointment.svg";
+import NewAppointment from "./assets/new-appointment.svg";
 //@ts-ignore
-import VideoCall from "../assets/video-call.svg";
+import VideoCall from "./assets/video-call.svg";
 //@ts-ignore
-import Servers from "../assets/servers.svg";
+import Servers from "./assets/servers.svg";
 //@ts-ignore
-import Awards from "../assets/awards.svg";
+import Awards from "./assets/awards.svg";
 //@ts-ignore
-import Contacts from "../assets/contacts.svg";
+import Contacts from "./assets/contacts.svg";
 //@ts-ignore
-import MedicalDevices from "../assets/medical-devices.svg";
+import MedicalDevices from "./assets/medical-devices.svg";
 //@ts-ignore
-import Organization from "../assets/organization.svg";
+import Organization from "./assets/organization.svg";
 //@ts-ignore
-import Profile from "../assets/profile.svg";
+import Profile from "./assets/profile.svg";
 //@ts-ignore
-import Research from "../assets/research.svg";
+import Research from "./assets/research.svg";
 //@ts-ignore
-import Studies from "../assets/studies.svg";
+import Studies from "./assets/studies.svg";
 //@ts-ignore
-import MedicalProfile from "../assets/medical-profile.svg";
+import MedicalProfile from "./assets/medical-profile.svg";
 //@ts-ignore
-import Prescriptions from "../assets/prescriptions.svg";
+import Prescriptions from "./assets/prescriptions.svg";
 //@ts-ignore
-import Invite from "../assets/invite.svg";
+import Invite from "./assets/invite.svg";
 //@ts-ignore
-import Emergencies from "../assets/emergencies.svg";
+import Emergencies from "./assets/emergencies.svg";
 //@ts-ignore
-import InsuranceAndPolicies from "../assets/insurance-and-policies.svg";
+import InsuranceAndPolicies from "./assets/insurance-and-policies.svg";
 
 interface IProps {
   size: IconSize;

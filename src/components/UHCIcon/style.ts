@@ -6,8 +6,6 @@ export const SContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1em;
-  border-radius: 50px;
   background: transparent;
   outline: none;
 `;

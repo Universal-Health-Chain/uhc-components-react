@@ -1,6 +1,6 @@
 {
   "name": "uhc-components-react",
-  "version": "1.2.0",
+  "version": "1.2.3",
   "description": "UHC reusable React components for faster and easier web development",
   "main": "/dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,7 +8,7 @@
     "start": "npm run storybook",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "prepublish": "tsc --build && copyfiles -f src/**/*.css dist/ "
+    "prepublish": "tsc --build && copyfiles -f src/**/*.css dist/ && copyfiles -f src/components/assets/*.svg dist/assets"
   },
   "repository": {
     "type": "git",
