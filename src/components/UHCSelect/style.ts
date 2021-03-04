@@ -5,6 +5,11 @@ interface ILabelProps {
   hasSelectedValue: boolean;
 }
 
+export const SWrapper = styled.div`
+  width: 100%;
+  position: relative;
+`;
+
 export const SExternalContainer = styled.div`
   display: flex;
   padding: 1px;
@@ -70,5 +75,7 @@ export const SLabel = styled.label<ILabelProps>`
 export const SOptionsList = styled.div`
   position: absolute;
   z-index: 5;
-  width: 100%
+  width: 100%;
+  max-height: 100px;
+  overflow-y: scroll;
 `;

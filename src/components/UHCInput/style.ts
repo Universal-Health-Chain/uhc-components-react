@@ -34,7 +34,7 @@ export const SContainer = styled.div<IContainerProps>`
 
 export const SInput = styled.input`
   display: block;
-  padding: 9.5px 0 9.5px 15px;
+  padding: 6px 10px;
   width: 100%;
 
   font-family: "Titillium Web", sans-serif;
@@ -66,7 +66,7 @@ export const SDatePicker = styled(DatePicker)`
 
 export const STextArea = styled.textarea`
   display: block;
-  padding: 9.5px 0 9.5px 15px;
+  padding: 6px 10px;
   width: 100%;
 
   font-family: "Titillium Web", sans-serif;

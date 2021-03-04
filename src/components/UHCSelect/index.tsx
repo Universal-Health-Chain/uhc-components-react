@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
+  SWrapper,
   SExternalContainer,
   SInternalContainer,
   SSelect,
@@ -41,7 +42,7 @@ const UHCSelect: React.FunctionComponent<IProps> = ({
   const [isListVisible, setIsListVisible] = useState<boolean>(false);
 
   return (
-    <div style={{ width: "100%", position: "relative"}}>
+    <SWrapper>
       <SExternalContainer>
         <SInternalContainer onClick={() => setIsListVisible(!isListVisible)}>
           <SLabel hasSelectedValue={selectedValue.value !== ""}>{label}</SLabel>
@@ -68,7 +69,7 @@ const UHCSelect: React.FunctionComponent<IProps> = ({
           })}
         </SOptionsList>
       )}
-    </div>
+    </SWrapper>
   );
 };
 
