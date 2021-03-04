@@ -12,6 +12,7 @@ export const SWrapper = styled.div`
 `;
 
 export const SExternalContainer = styled.div`
+  margin-top: 0.7rem;
   width: 100%;
   display: flex;
   justify-content: center;

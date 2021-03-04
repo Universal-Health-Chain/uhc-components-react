@@ -17,6 +17,7 @@ interface ILabelProps {
 }
 
 export const SContainer = styled.div<IContainerProps>`
+  margin-top: 0.7rem;
   width: 100%;
   display: flex;
   justify-content: center;
