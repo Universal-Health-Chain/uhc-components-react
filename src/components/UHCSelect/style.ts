@@ -63,6 +63,12 @@ export const SLabel = styled.label<ILabelProps>`
   font-weight: 300;
   transition: 0.3s;
   pointer-events: none;
-  top: ${(props) => (props.hasSelectedValue ? "-2px" : "none")};
+  top: ${(props) => (props.hasSelectedValue ? "-26px" : "none")};
   font-size: ${(props) => (props.hasSelectedValue ? "12px" : "14px")};
+`;
+
+export const SOptionsList = styled.div`
+  position: absolute;
+  z-index: 5;
+  width: 100%
 `;

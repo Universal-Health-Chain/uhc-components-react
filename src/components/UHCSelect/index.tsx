@@ -6,6 +6,7 @@ import {
   SText,
   SIcon,
   SLabel,
+  SOptionsList,
 } from "./style";
 
 import { SmallArrowDownIcon } from "../icons";
@@ -40,7 +41,7 @@ const UHCSelect: React.FunctionComponent<IProps> = ({
   const [isListVisible, setIsListVisible] = useState<boolean>(false);
 
   return (
-    <>
+    <div style={{ width: "100%", position: "relative"}}>
       <SExternalContainer>
         <SInternalContainer onClick={() => setIsListVisible(!isListVisible)}>
           <SLabel hasSelectedValue={selectedValue.value !== ""}>{label}</SLabel>
@@ -53,7 +54,7 @@ const UHCSelect: React.FunctionComponent<IProps> = ({
       </SExternalContainer>
 
       {isListVisible && (
-        <div onClick={() => setIsListVisible(false)}>
+        <SOptionsList onClick={() => setIsListVisible(false)}>
           {data.map((item: ISelectItem) => {
             return (
               <UHCSelectItem
@@ -65,9 +66,9 @@ const UHCSelect: React.FunctionComponent<IProps> = ({
               ></UHCSelectItem>
             );
           })}
-        </div>
+        </SOptionsList>
       )}
-    </>
+    </div>
   );
 };
 
