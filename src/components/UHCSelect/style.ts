@@ -24,7 +24,6 @@ export const SExternalContainer = styled.div`
   );
   position: relative;
   border-radius: 8px;
-
 `;
 
 export const SInternalContainer = styled.input`
@@ -88,6 +87,7 @@ export const SLabel = styled.label<ILabelProps>`
   font-weight: 300;
   font-size: 14px;
   pointer-events: none;
+  margin: 0;
   transform: translateY(0);
   transition: all 0.15s ease-out;
   ${(props) =>

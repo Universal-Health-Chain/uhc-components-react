@@ -113,6 +113,7 @@ export const SLabel = styled.label<ILabelProps>`
   pointer-events: none;
   transform: translateY(0);
   transition: all 0.15s ease-out;
+  margin: 0;
   ${(props) =>
     (props.isFocused || props.value !== "") &&
     css`
