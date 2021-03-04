@@ -31,7 +31,7 @@ export const SInternalContainer = styled.div`
 export const SText = styled.p`
   font-family: "Titillium Web", sans-serif;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
   margin-left: 15px;
 `;
 export const SIcon = styled.div`
