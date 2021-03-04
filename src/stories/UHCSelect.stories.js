@@ -29,8 +29,8 @@ export default {
 const Template = (args) => (
   <UHCSelect
     data={[
-      { text: "Opcion 1", value: "1" },
-      { text: "Opcion 2", value: "2" },
+      { label: "Opcion 1", value: "1" },
+      { label: "Opcion 2", value: "2" },
     ]}
     {...args}
   ></UHCSelect>

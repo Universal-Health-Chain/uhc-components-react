@@ -11,7 +11,7 @@ import {
 import { SmallArrowDownIcon } from "../icons";
 import UHCSelectItem from "./UHCSelectItem";
 
-interface ISelectItem {
+export interface ISelectItem {
   label: string;
   value: string;
 }
