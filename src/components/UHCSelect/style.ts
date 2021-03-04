@@ -48,6 +48,7 @@ export const SInternalContainer = styled.input`
 `;
 
 export const SText = styled.p`
+  margin: 0;
   position: absolute;
   left: 0;
   padding-left: 1rem;
