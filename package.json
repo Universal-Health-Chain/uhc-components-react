@@ -1,6 +1,6 @@
 {
   "name": "uhc-components-react",
-  "version": "1.2.13",
+  "version": "1.2.14",
   "description": "UHC reusable React components for faster and easier web development",
   "main": "/dist/index.js",
   "types": "dist/index.d.ts",
