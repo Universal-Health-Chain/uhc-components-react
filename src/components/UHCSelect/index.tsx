@@ -38,30 +38,35 @@ const UHCSelect: React.FunctionComponent<IProps> = ({
   }, [selectedValue]);
 
   const [isListVisible, setIsListVisible] = useState<boolean>(false);
+
   return (
     <>
-      <SLabel> {label}</SLabel>
       <SExternalContainer>
         <SInternalContainer onClick={() => setIsListVisible(!isListVisible)}>
+          <SLabel hasSelectedValue={selectedValue.value !== ""}>{label}</SLabel>
           <SText> {selectedValue.label}</SText>
           <SIcon>
             <SmallArrowDownIcon size={"small"} />
           </SIcon>
-          <SSelect visible={isListVisible}>
-            {data.map((item: ISelectItem) => {
-              return (
-                <UHCSelectItem
-                  label={item.label}
-                  value={item.value}
-                  returnValue={(label, value) =>
-                    setSelectedValue({ label, value })
-                  }
-                ></UHCSelectItem>
-              );
-            })}
-          </SSelect>
+          <SSelect></SSelect>
         </SInternalContainer>
       </SExternalContainer>
+
+      {isListVisible && (
+        <div onClick={() => setIsListVisible(false)}>
+          {data.map((item: ISelectItem) => {
+            return (
+              <UHCSelectItem
+                label={item.label}
+                value={item.value}
+                returnValue={(label, value) =>
+                  setSelectedValue({ label, value })
+                }
+              ></UHCSelectItem>
+            );
+          })}
+        </div>
+      )}
     </>
   );
 };

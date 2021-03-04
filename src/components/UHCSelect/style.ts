@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 import theme from "uhc-themes";
 
-interface ISelectProps {
-  visible: boolean;
+interface ILabelProps {
+  hasSelectedValue: boolean;
 }
 
 export const SExternalContainer = styled.div`
@@ -11,6 +11,7 @@ export const SExternalContainer = styled.div`
   height: 2.5em;
   width: 100%;
   border-radius: 8px;
+  margin-top: 8px;
   background: linear-gradient(
     to right,
     ${theme.color.primary},
@@ -32,6 +33,7 @@ export const SText = styled.p`
   font-family: "Titillium Web", sans-serif;
   font-weight: 600;
   font-size: 14px;
+  margin: 0px;
   margin-left: 15px;
 `;
 export const SIcon = styled.div`
@@ -40,8 +42,8 @@ export const SIcon = styled.div`
   width: 16px;
 `;
 
-export const SSelect = styled.ul<ISelectProps>`
-  display: ${(props) => (props.visible ? "flex" : "none")};
+export const SSelect = styled.ul`
+  display: flex;
   flex-direction: column;
   position: absolute;
   top: 3em;
@@ -53,11 +55,14 @@ export const SSelect = styled.ul<ISelectProps>`
   z-index: 0;
 `;
 
-export const SLabel = styled.label`
-  font-size: 12px;
+export const SLabel = styled.label<ILabelProps>`
+  position: absolute;
   padding: 0.5em 1.2em;
   color: grey;
   font-family: "Titillium Web", sans-serif;
   font-weight: 300;
+  transition: 0.3s;
   pointer-events: none;
+  top: ${(props) => (props.hasSelectedValue ? "-2px" : "none")};
+  font-size: ${(props) => (props.hasSelectedValue ? "12px" : "14px")};
 `;

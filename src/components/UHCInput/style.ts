@@ -34,7 +34,7 @@ export const SContainer = styled.div<IContainerProps>`
 
 export const SInput = styled.input`
   display: block;
-  padding: 0.5em 1em;
+  padding: 9.5px 0 9.5px 15px;
   width: 100%;
 
   font-family: "Titillium Web", sans-serif;
@@ -66,12 +66,12 @@ export const SDatePicker = styled(DatePicker)`
 
 export const STextArea = styled.textarea`
   display: block;
-  padding: 0.5em 1em;
+  padding: 9.5px 0 9.5px 15px;
   width: 100%;
 
   font-family: "Titillium Web", sans-serif;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 14px;
 
   color: black;
   background: white;
@@ -97,7 +97,7 @@ export const SLabel = styled.label<ILabelProps>`
   color: grey;
   font-family: "Titillium Web", sans-serif;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 14px;
   transition: 0.2s;
   pointer-events: none;
 `;

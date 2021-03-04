@@ -36,11 +36,7 @@ const Template = (args) => (
   ></UHCSelect>
 );
 
-export const WithDefaultValue = Template.bind({});
-WithDefaultValue.args = {
-  label: "Select",
-  defaultValue: { text: "Seleccione una opcion", value: null },
-};
-
 export const WithoutDefaultValue = Template.bind({});
-WithoutDefaultValue.args = {};
+WithoutDefaultValue.args = {
+  label: "Select",
+};
