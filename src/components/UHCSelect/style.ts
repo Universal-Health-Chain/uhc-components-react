@@ -10,7 +10,7 @@ export const SExternalContainer = styled.div`
   padding: 1px;
   height: 2.5em;
   width: 100%;
-  border-radius: 50px;
+  border-radius: 8px;
   background: linear-gradient(
     to right,
     ${theme.color.primary},
@@ -23,7 +23,7 @@ export const SInternalContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  border-radius: 50px;
+  border-radius: 8px;
   background: white;
   cursor: pointer;
 `;
@@ -48,7 +48,7 @@ export const SSelect = styled.ul<ISelectProps>`
   left: 0px;
   width: 95%;
   padding: 0;
-  margin: 16px 26px;
+  margin: 30px 26px;
   list-style-type: none;
   z-index: 0;
 `;

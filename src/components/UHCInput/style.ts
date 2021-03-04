@@ -17,6 +17,7 @@ interface ILabelProps {
 export const SContainer = styled.div<IContainerProps>`
   display: inline-block;
   padding: 1px;
+  margin-top: 8px;
   position: relative;
   width: 100%;
 
@@ -27,7 +28,8 @@ export const SContainer = styled.div<IContainerProps>`
       ? `red`
       : `grey`};
 
-  border-radius: ${(props) => (props.multiline ? "10px" : "50px")};
+  border-radius: ${(props) => (props.multiline ? "10px" : "8px")};
+
 `;
 
 export const SInput = styled.input`
@@ -37,12 +39,12 @@ export const SInput = styled.input`
 
   font-family: "Titillium Web", sans-serif;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 14px;
 
   color: black;
   background: white;
 
-  border-radius: 50px;
+  border-radius: 8px;
 
   border: none;
   outline: none;
