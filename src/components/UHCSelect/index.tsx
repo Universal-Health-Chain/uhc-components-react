@@ -12,7 +12,7 @@ import { SmallArrowDownIcon } from "../icons";
 import UHCSelectItem from "./UHCSelectItem";
 
 interface ISelectItem {
-  text: string;
+  label: string;
   value: string;
 }
 
@@ -30,7 +30,7 @@ const UHCSelect: React.FunctionComponent<IProps> = ({
   getValue,
 }) => {
   const [selectedValue, setSelectedValue] = useState<ISelectItem>(
-    defaultValue ? defaultValue : { text: "", value: "" }
+    defaultValue ? defaultValue : { label: "", value: "" }
   );
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const UHCSelect: React.FunctionComponent<IProps> = ({
       <SLabel> {label}</SLabel>
       <SExternalContainer>
         <SInternalContainer onClick={() => setIsListVisible(!isListVisible)}>
-          <SText> {selectedValue.text}</SText>
+          <SText> {selectedValue.label}</SText>
           <SIcon>
             <SmallArrowDownIcon size={"small"} />
           </SIcon>
@@ -51,10 +51,10 @@ const UHCSelect: React.FunctionComponent<IProps> = ({
             {data.map((item: ISelectItem) => {
               return (
                 <UHCSelectItem
-                  text={item.text}
+                  label={item.label}
                   value={item.value}
-                  returnValue={(text, value) =>
-                    setSelectedValue({ text, value })
+                  returnValue={(label, value) =>
+                    setSelectedValue({ label, value })
                   }
                 ></UHCSelectItem>
               );
