@@ -2,18 +2,18 @@ import React from "react";
 import { SSelectItem } from "./UHCSelectItemStyle";
 
 export interface ISelectItemProps {
-  text: any;
+  label: string;
   value: string;
   returnValue: (text: string, value: string) => void;
 }
 
 const UHCSelectItem: React.FunctionComponent<ISelectItemProps> = ({
-  text,
+  label,
   value,
   returnValue,
 }) => {
   return (
-    <SSelectItem onClick={() => returnValue(text, value)}> {text}</SSelectItem>
+    <SSelectItem onClick={() => returnValue(label, value)}>{label}</SSelectItem>
   );
 };
 
