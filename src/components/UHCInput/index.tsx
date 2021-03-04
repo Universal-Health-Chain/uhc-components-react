@@ -8,6 +8,7 @@ import {
   SDatePicker,
   SLabel,
   SError,
+  SDateContainer,
 } from "./style";
 
 interface IProps {
@@ -45,7 +46,9 @@ const UHCInput: React.FunctionComponent<IProps> = ({
             onChange={(event) => setValue(event.target.value)}
             name={name}
           ></STextArea>
-          <SLabel isFocused={isFocused}>{placeholder}</SLabel>
+          <SLabel isFocused={isFocused} value={value}>
+            {placeholder}
+          </SLabel>
         </SContainer>
         {error && <SError>{error}</SError>}
       </>
@@ -54,7 +57,7 @@ const UHCInput: React.FunctionComponent<IProps> = ({
     if (format === "date") {
       return (
         <>
-          <SContainer isFocused={isFocused} error={error}>
+          <SDateContainer isFocused={isFocused} error={error}>
             <SDatePicker
               onKeyDown={(event) => {
                 console.log();
@@ -63,21 +66,28 @@ const UHCInput: React.FunctionComponent<IProps> = ({
                 }
               }}
               customInput={
-                <div>
-                  <SInput
-                    onFocus={() => setIsFocused(true)}
-                    onBlur={() => setIsFocused(false)}
-                    value={value}
-                    name={name}
-                  />
-                  <SLabel isFocused={isFocused}>{placeholder}</SLabel>
-                </div>
+                <>
+                  <SContainer isFocused={isFocused} error={error}>
+                    <SLabel isFocused={isFocused} value={value}>
+                      {placeholder}
+                    </SLabel>
+                    <SInput
+                      type={format}
+                      value={value}
+                      onFocus={() => setIsFocused(true)}
+                      onBlur={() => setIsFocused(false)}
+                      onChange={(event) => setValue(event.target.value)}
+                      name={name}
+                    ></SInput>
+                  </SContainer>
+                  {error && <SError>{error}</SError>}
+                </>
               }
               onChange={(date) => {
                 setValue(moment(date?.toString()).format("DD/MM/YYYY"));
               }}
             ></SDatePicker>
-          </SContainer>
+          </SDateContainer>
           {error && <SError>{error}</SError>}
         </>
       );
@@ -85,6 +95,9 @@ const UHCInput: React.FunctionComponent<IProps> = ({
       return (
         <>
           <SContainer isFocused={isFocused} error={error}>
+            <SLabel isFocused={isFocused} value={value}>
+              {placeholder}
+            </SLabel>
             <SInput
               type={format}
               value={value}
@@ -93,7 +106,6 @@ const UHCInput: React.FunctionComponent<IProps> = ({
               onChange={(event) => setValue(event.target.value)}
               name={name}
             ></SInput>
-            <SLabel isFocused={isFocused}>{placeholder}</SLabel>
           </SContainer>
           {error && <SError>{error}</SError>}
         </>

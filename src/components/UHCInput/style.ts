@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
 import theme from "uhc-themes";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+
 import "../global.css";
+import { css, keyframes } from "@emotion/core";
 
 interface IContainerProps {
   isFocused: boolean;
@@ -12,99 +13,117 @@ interface IContainerProps {
 
 interface ILabelProps {
   isFocused: boolean;
+  value: string;
 }
 
 export const SContainer = styled.div<IContainerProps>`
-  display: inline-block;
-  padding: 1px;
-  margin-top: 8px;
-  position: relative;
   width: 100%;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px;
   background: ${(props) =>
     props.isFocused
       ? `linear-gradient(to right, ${theme.color.primary}, ${theme.color.secondary})`
       : props.error
       ? `red`
       : `grey`};
+  position: relative;
+  border-radius: 8px;
+`;
 
-  border-radius: ${(props) => (props.multiline ? "10px" : "8px")};
+export const SDateContainer = styled.div<IContainerProps>`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px;
+  background: transparent;
+  position: relative;
+  border-radius: 8px;
 
+  & > .react-datepicker-wrapper {
+    width: 100%;
+  }
 `;
 
 export const SInput = styled.input`
-  display: block;
-  padding: 6px 10px;
   width: 100%;
+  outline: none;
+  padding: 0.5rem;
+  font-size: 14px;
 
   font-family: "Titillium Web", sans-serif;
   font-weight: 300;
-  font-size: 14px;
-
-  color: black;
-  background: white;
-
   border-radius: 8px;
-
+  padding-left: 1rem;
   border: none;
   outline: none;
 
-  &:not([value=""]) ~ label,
-  &:focus ~ label {
-    top: -26px;
-    font-size: 12px;
+  &[type="date"][value=""]::-webkit-datetime-edit-text {
+    color: transparent;
+  }
+  &[type="date"][value=""]::-webkit-datetime-edit-month-field {
+    color: transparent;
+  }
+  &[type="date"][value=""]::-webkit-datetime-edit-day-field {
+    color: transparent;
   }
 
+  &[type="date"][value=""]::-webkit-datetime-edit-year-field {
+    color: transparent;
+  }
+
+  color: black;
 `;
 
 export const SDatePicker = styled(DatePicker)`
-  &:focus ~ label {
-    top: -26px;
-    font-size: 12px;
-  }
+  width: 100%;
+  background: red;
 `;
 
 export const STextArea = styled.textarea`
-  display: block;
-  padding: 6px 10px;
   width: 100%;
-
+  height: 150px;
+  outline: none;
+  padding: 0.5rem;
+  font-size: 14px;
   font-family: "Titillium Web", sans-serif;
   font-weight: 300;
-  font-size: 14px;
-
-  color: black;
-  background: white;
-
-  border-radius: 10px;
-
+  border-radius: 8px;
+  padding-left: 1rem;
   border: none;
   outline: none;
+
   resize: vertical;
 
-  &:not(:empty) ~ label,
-  &:focus ~ label {
-    top: -26px;
-    font-size: 12px;
+  & + label {
+    top: 0.5rem;
   }
 `;
 
 export const SLabel = styled.label<ILabelProps>`
   position: absolute;
-  top: 0;
   left: 0;
-  padding: 0.5em 1.2em;
+  padding-left: 1rem;
   color: grey;
   font-family: "Titillium Web", sans-serif;
   font-weight: 300;
   font-size: 14px;
-  transition: 0.2s;
   pointer-events: none;
+  transform: translateY(0);
+  transition: all 0.15s ease-out;
+  ${(props) =>
+    (props.isFocused || props.value !== "") &&
+    css`
+      transform: translateY(-155%);
+      font-size: 12px;
+    `};
 `;
 
 export const SError = styled.span`
   display: block;
-  padding: 0.1em 1.5em;
+  padding: 0.1em 1rem;
   color: red;
   font-family: "Titillium Web", sans-serif;
   font-weight: 300;

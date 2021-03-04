@@ -1,3 +1,4 @@
+import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 import theme from "uhc-themes";
 
@@ -11,40 +12,58 @@ export const SWrapper = styled.div`
 `;
 
 export const SExternalContainer = styled.div`
-  display: flex;
-  padding: 1px;
-  height: 2.5em;
   width: 100%;
-  border-radius: 8px;
-  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px;
   background: linear-gradient(
     to right,
     ${theme.color.primary},
     ${theme.color.secondary}
   );
+  position: relative;
+  border-radius: 8px;
+
 `;
 
-export const SInternalContainer = styled.div`
+export const SInternalContainer = styled.input`
+  width: 100%;
+  outline: none;
+  padding: 0.5rem;
+  font-size: 14px;
+  background: white;
+
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  border-radius: 8px;
+  padding-left: 1rem;
+  border: none;
+  outline: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  border-radius: 8px;
-  background: white;
   cursor: pointer;
 `;
 
 export const SText = styled.p`
+  position: absolute;
+  left: 0;
+  padding-left: 1rem;
+  color: black;
   font-family: "Titillium Web", sans-serif;
   font-weight: 600;
   font-size: 14px;
-  margin: 0px;
-  margin-left: 15px;
+  pointer-events: none;
+  transform: translateY(0);
 `;
 export const SIcon = styled.div`
-  margin-right: 15px;
-  height: 16px;
-  width: 16px;
+  position: absolute;
+  right: 0;
+  padding-right: 1rem;
+  cursor: pointer;
+  transform: translateY(0);
 `;
 
 export const SSelect = styled.ul`
@@ -62,14 +81,21 @@ export const SSelect = styled.ul`
 
 export const SLabel = styled.label<ILabelProps>`
   position: absolute;
-  padding: 0.5em 1.2em;
+  left: 0;
+  padding-left: 1rem;
   color: grey;
   font-family: "Titillium Web", sans-serif;
   font-weight: 300;
-  transition: 0.3s;
+  font-size: 14px;
   pointer-events: none;
-  top: ${(props) => (props.hasSelectedValue ? "-26px" : "none")};
-  font-size: ${(props) => (props.hasSelectedValue ? "12px" : "14px")};
+  transform: translateY(0);
+  transition: all 0.15s ease-out;
+  ${(props) =>
+    props.hasSelectedValue &&
+    css`
+      transform: translateY(-150%);
+      font-size: 12px;
+    `};
 `;
 
 export const SOptionsList = styled.div`

@@ -7,6 +7,7 @@ export const SSelectItem = styled.li`
   background: white;
   padding: 8px 16px;
   border-radius: 8px;
-  margin: 2px;
+  margin: 5px;
   border: 1px solid lightgrey;
+  list-style-type: none;
 `;

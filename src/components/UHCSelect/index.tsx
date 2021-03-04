@@ -43,15 +43,13 @@ const UHCSelect: React.FunctionComponent<IProps> = ({
 
   return (
     <SWrapper>
-      <SExternalContainer>
-        <SInternalContainer onClick={() => setIsListVisible(!isListVisible)}>
-          <SLabel hasSelectedValue={selectedValue.value !== ""}>{label}</SLabel>
-          <SText> {selectedValue.label}</SText>
-          <SIcon>
-            <SmallArrowDownIcon size={"small"} />
-          </SIcon>
-          <SSelect></SSelect>
-        </SInternalContainer>
+      <SExternalContainer onClick={() => setIsListVisible(!isListVisible)}>
+        <SLabel hasSelectedValue={selectedValue.value !== ""}>{label}</SLabel>
+        <SText> {selectedValue.label}</SText>
+        <SInternalContainer disabled />
+        <SIcon>
+          <SmallArrowDownIcon size={"small"} />
+        </SIcon>
       </SExternalContainer>
 
       {isListVisible && (
