@@ -17,7 +17,6 @@ interface ILabelProps {
 }
 
 export const SContainer = styled.div<IContainerProps>`
-  margin-top: 0.7rem;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -104,9 +103,10 @@ export const STextArea = styled.textarea`
 `;
 
 export const SLabel = styled.label<ILabelProps>`
+  background: white;
   position: absolute;
   left: 0;
-  padding-left: 1rem;
+  padding: 0 5px;
   color: grey;
   font-family: "Titillium Web", sans-serif;
   font-weight: 300;
@@ -114,11 +114,11 @@ export const SLabel = styled.label<ILabelProps>`
   pointer-events: none;
   transform: translateY(0);
   transition: all 0.15s ease-out;
-  margin: 0;
+  margin-left: 1rem;
   ${(props) =>
     (props.isFocused || props.value !== "") &&
     css`
-      transform: translateY(-155%);
+      transform: translateY(-100%);
       font-size: 12px;
     `};
 `;

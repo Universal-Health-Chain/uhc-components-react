@@ -12,7 +12,6 @@ export const SWrapper = styled.div`
 `;
 
 export const SExternalContainer = styled.div`
-  margin-top: 0.7rem;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -81,29 +80,35 @@ export const SSelect = styled.ul`
 `;
 
 export const SLabel = styled.label<ILabelProps>`
+  background: white;
   position: absolute;
   left: 0;
-  padding-left: 1rem;
+  padding: 0 5px;
   color: grey;
   font-family: "Titillium Web", sans-serif;
   font-weight: 300;
   font-size: 14px;
   pointer-events: none;
-  margin: 0;
+  margin-left: 1rem;
   transform: translateY(0);
   transition: all 0.15s ease-out;
   ${(props) =>
     props.hasSelectedValue &&
     css`
-      transform: translateY(-150%);
+      transform: translateY(-100%);
       font-size: 12px;
     `};
 `;
 
 export const SOptionsList = styled.div`
   position: absolute;
+  padding: 3px;
   z-index: 5;
   width: 100%;
-  max-height: 100px;
+  max-height: 150px;
   overflow-y: scroll;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid ${theme.color.lightgray};
+  border-top: none;
 `;
