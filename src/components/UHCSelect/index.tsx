@@ -25,6 +25,8 @@ interface IProps {
   getValue?: (value: string) => void;
 }
 
+const DEFAULT_EMPTY_OPTION = { label: "", value: "" };
+
 const UHCSelect: React.FunctionComponent<IProps> = ({
   label,
   defaultValue,
@@ -32,7 +34,7 @@ const UHCSelect: React.FunctionComponent<IProps> = ({
   getValue,
 }) => {
   const [selectedValue, setSelectedValue] = useState<ISelectItem>(
-    defaultValue ? defaultValue : { label: "", value: "" }
+    defaultValue ? defaultValue : DEFAULT_EMPTY_OPTION
   );
 
   useEffect(() => {
@@ -47,9 +49,11 @@ const UHCSelect: React.FunctionComponent<IProps> = ({
         <SLabel hasSelectedValue={selectedValue.value !== ""}>{label}</SLabel>
         <SText> {selectedValue.label}</SText>
         <SInternalContainer disabled />
-        <SIcon>
-          <SmallArrowDownIcon size={"small"} />
-        </SIcon>
+        {selectedValue === DEFAULT_EMPTY_OPTION && (
+          <SIcon>
+            <SmallArrowDownIcon size={"small"} />
+          </SIcon>
+        )}
       </SExternalContainer>
 
       {isListVisible && (

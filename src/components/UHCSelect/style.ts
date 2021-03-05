@@ -57,6 +57,10 @@ export const SText = styled.p`
   font-size: 14px;
   pointer-events: none;
   transform: translateY(0);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: inherit;
 `;
 export const SIcon = styled.div`
   position: absolute;
@@ -64,6 +68,8 @@ export const SIcon = styled.div`
   padding-right: 1rem;
   cursor: pointer;
   transform: translateY(0);
+  display: flex;
+  align-items: center;
 `;
 
 export const SSelect = styled.ul`
@@ -89,6 +95,7 @@ export const SLabel = styled.label<ILabelProps>`
   font-weight: 300;
   font-size: 14px;
   pointer-events: none;
+  margin: 0;
   margin-left: 1rem;
   transform: translateY(0);
   transition: all 0.15s ease-out;
