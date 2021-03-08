@@ -37,7 +37,7 @@ const UHCInput: React.FunctionComponent<IProps> = ({
     if (defaultValue) {
       setValue(defaultValue);
     }
-  }, []);
+  }, [defaultValue]);
 
   useEffect(() => {
     getValue(value);
