@@ -18,6 +18,7 @@ interface IProps {
   error?: string;
   format?: string;
   name?: string;
+  defaultValue?: string;
 }
 
 const UHCInput: React.FunctionComponent<IProps> = ({
@@ -27,9 +28,16 @@ const UHCInput: React.FunctionComponent<IProps> = ({
   error,
   format,
   name,
+  defaultValue,
 }) => {
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [value, setValue] = useState<string>("");
+
+  useEffect(() => {
+    if (defaultValue) {
+      setValue(defaultValue);
+    }
+  }, []);
 
   useEffect(() => {
     getValue(value);
@@ -118,6 +126,7 @@ UHCInput.defaultProps = {
   multiline: false,
   error: undefined,
   format: "text",
+  defaultValue: undefined,
 };
 
 export default UHCInput;

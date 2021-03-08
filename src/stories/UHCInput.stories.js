@@ -7,7 +7,7 @@ export default {
   component: UHCInput,
   argTypes: {
     placeholder: {
-      description: "Input default text",
+      description: "Input placeholder text",
     },
     getValue: {
       description: "Function to recover the input value",
@@ -30,6 +30,9 @@ export default {
         type: "select",
         options: ["text", "password", "number", "date", "time"],
       },
+    },
+    placeholder: {
+      description: "Input default value",
     },
   },
 };
@@ -64,9 +67,16 @@ DateInput.args = {
   format: "date",
 };
 
-export const MultiLine = Template.bind({});
-MultiLine.args = {
+export const Multiline = Template.bind({});
+Multiline.args = {
   placeholder: "TextArea...",
   getValue: (value) => {},
   multiline: true,
+};
+
+export const DefaultValue = Template.bind({});
+DefaultValue.args = {
+  placeholder: "Default value",
+  getValue: (value) => {},
+  defaultValue: "This is a default value",
 };

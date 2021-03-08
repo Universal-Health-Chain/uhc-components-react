@@ -119,8 +119,8 @@ export const SLabel = styled.label<ILabelProps>`
   ${(props) =>
     (props.isFocused || props.value !== "") &&
     css`
-      transform: translateY(-100%);
-      font-size: 12px;
+      transform: translateY(-140%);
+      font-size: 10px;
     `};
 `;
 
