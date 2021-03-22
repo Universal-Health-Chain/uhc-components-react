@@ -5,11 +5,11 @@ import {
   SSpan,
   SBadge,
   SIconBadge,
-  SInnerContainer
+  SInnerContainer,
 } from "./style";
-import { ArrowRightIcon, ArrowLeftIcon } from "../icons";
+import { ArrowRightIcon, ArrowLeftIcon, SortIcon } from "../icons";
 
-type IconType = "arrow-right" | "arrow-left" | "messages";
+type IconType = "arrow-right" | "arrow-left" | "messages" | "sort";
 interface IProps {
   text?: string;
   icon?: IconType;
@@ -25,6 +25,8 @@ const getIcon = (name: IconType) => {
       return ArrowRightIcon;
     case "arrow-left":
       return ArrowLeftIcon;
+    case "sort":
+      return SortIcon;
     default:
       throw new Error("An icon with this name doesn't exist");
   }
@@ -35,7 +37,7 @@ const UHCIconButton: React.FunctionComponent<IProps> = ({
   buttonType,
   disabled,
   onPress,
-  badgeNumber
+  badgeNumber,
 }) => {
   const Icon = icon ? getIcon(icon) : getIcon("arrow-right");
   if (text) {
@@ -112,7 +114,7 @@ UHCIconButton.defaultProps = {
   icon: "arrow-right",
   buttonType: "primary",
   disabled: false,
-  badgeNumber: 0
+  badgeNumber: 0,
 };
 
 export default UHCIconButton;

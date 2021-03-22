@@ -142,7 +142,7 @@ export const SContainer = styled.div<IContainerProps>`
   width: 5.5em;
   height: 5.5em;
   padding: 0.5em;
-  border-radius: 50px;
+  border-radius: 8px;
   cursor: pointer;
   background: ${props => getButtonBackground(props.disabled, props.buttonType)};
   outline: none;
@@ -165,7 +165,7 @@ export const SButton = styled.button<IButtonProps>`
 
   font-size: 16px;
   border: none;
-  border-radius: 50px;
+  border-radius: 8px;
   text-decoration: none;
   cursor: pointer;
   pointer-events: ${props => (props.disabled ? "none" : "auto")};
@@ -187,7 +187,7 @@ export const SSpan = styled.span<ISpanProps>`
   padding: 0.5em 1em;
   color: ${props => getSpanColor(props.disabled, props.buttonType)};
   background: ${props => getSpanBackground(props.disabled, props.buttonType)};
-  border-radius: 50px;
+  border-radius: 8px;
   font-family: "Titillium Web", sans-serif;
   font-size: 16px;
   font-weight: 600;

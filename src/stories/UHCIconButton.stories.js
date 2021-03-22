@@ -15,7 +15,7 @@ export default {
       table: { defaultValue: { summary: "arrow-right" } },
       control: {
         type: "select",
-        options: ["arrow-right", "arrow-left"]
+        options: ["arrow-right", "arrow-left", "sort"]
       }
     },
     buttonType: {
