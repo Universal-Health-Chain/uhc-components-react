@@ -121,7 +121,7 @@ export const SInnerContainer = styled.div<IContainerProps>`
   width: 100%;
   height: 100%;
 
-  border-radius: 50px;
+  border-radius: 8px;
   cursor: pointer;
   background: ${props => getSpanBackground(props.disabled, props.buttonType)};
   outline: none;
@@ -163,7 +163,7 @@ export const SButton = styled.button<IButtonProps>`
 
   background: ${props => getButtonBackground(props.disabled, props.buttonType)};
 
-  font-size: 16px;
+  font-size: 14px;
   border: none;
   border-radius: 8px;
   text-decoration: none;
@@ -189,7 +189,7 @@ export const SSpan = styled.span<ISpanProps>`
   background: ${props => getSpanBackground(props.disabled, props.buttonType)};
   border-radius: 8px;
   font-family: "Titillium Web", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   & > svg {
     margin-right: 5px;
