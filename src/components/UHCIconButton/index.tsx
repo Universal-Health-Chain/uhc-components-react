@@ -75,11 +75,7 @@ const UHCIconButton: React.FunctionComponent<IProps> = ({
   } else {
     return (
       <SContainer buttonType={buttonType} disabled={disabled} onClick={onPress}>
-        <SInnerContainer
-          buttonType={buttonType}
-          disabled={disabled}
-          onClick={onPress}
-        >
+        <SInnerContainer buttonType={buttonType} disabled={disabled}>
           <Icon
             size="big"
             color={(() => {
