@@ -1,10 +1,15 @@
-import styled from "@emotion/styled";
-import theme from "uhc-themes";
+// Styles
+import "../global.css";
+
+// Components
 import DatePicker from "react-datepicker";
 
-import "../global.css";
-import { css, keyframes } from "@emotion/core";
+// External utils
+import styled from "@emotion/styled";
+import { css } from "@emotion/core";
+import theme from "uhc-themes";
 
+// Types
 interface IContainerProps {
   isFocused: boolean;
   multiline?: boolean;
@@ -131,4 +136,14 @@ export const SError = styled.span`
   font-family: "Titillium Web", sans-serif;
   font-weight: 300;
   font-size: 12px;
+`;
+
+export const SIcon = styled.div`
+  position: absolute;
+  right: 0;
+  padding-right: 1rem;
+  cursor: pointer;
+  transform: translateY(0);
+  display: flex;
+  align-items: center;
 `;

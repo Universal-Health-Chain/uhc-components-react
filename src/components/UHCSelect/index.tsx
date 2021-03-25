@@ -3,7 +3,6 @@ import {
   SWrapper,
   SExternalContainer,
   SInternalContainer,
-  SSelect,
   SText,
   SIcon,
   SLabel,

@@ -72,19 +72,6 @@ export const SIcon = styled.div`
   align-items: center;
 `;
 
-export const SSelect = styled.ul`
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 3em;
-  left: 0px;
-  width: 95%;
-  padding: 0;
-  margin: 30px 26px;
-  list-style-type: none;
-  z-index: 0;
-`;
-
 export const SLabel = styled.label<ILabelProps>`
   background: white;
   position: absolute;

@@ -1,6 +1,7 @@
+// React
 import React, { useState, useEffect } from "react";
-import moment from "moment";
 
+// Styles
 import {
   SContainer,
   SInput,
@@ -9,14 +10,46 @@ import {
   SLabel,
   SError,
   SDateContainer,
+  SIcon,
 } from "./style";
+
+// Components
+import { ShowIcon, HideIcon } from "../icons";
+
+// External utils
+import moment from "moment";
+
+// Types
+type InputTypes =
+  | "button"
+  | "checkbox"
+  | "color"
+  | "date"
+  | "datetime-local"
+  | "email"
+  | "file"
+  | "hidden"
+  | "image"
+  | "month"
+  | "number"
+  | "password"
+  | "radio"
+  | "range"
+  | "reset"
+  | "search"
+  | "submit"
+  | "tel"
+  | "text"
+  | "time"
+  | "url"
+  | "week";
 
 interface IProps {
   placeholder: string;
   getValue: (value: string) => void;
   multiline?: boolean;
   error?: string;
-  format?: string;
+  format?: InputTypes;
   name?: string;
   defaultValue?: string;
 }
@@ -30,18 +63,40 @@ const UHCInput: React.FunctionComponent<IProps> = ({
   name,
   defaultValue,
 }) => {
-  const [isFocused, setIsFocused] = useState<boolean>(false);
+  // Variables
   const [value, setValue] = useState<string>("");
+  const [isFocused, setIsFocused] = useState<boolean>(false);
+  const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
+  // Life cycles
+
+  /**
+   * Stores the default value from props
+   * to state value.
+   */
   useEffect(() => {
     if (defaultValue) {
       setValue(defaultValue);
     }
   }, [defaultValue]);
 
+  /**
+   * Returns the input's value on change.
+   */
   useEffect(() => {
     getValue(value);
   }, [value]);
+
+  // Functions
+
+  /**
+   * Automatically toggles input type password
+   * to text and vice versa
+   */
+  const togglePasswordVisibility = React.useCallback(
+    () => setIsPasswordVisible((state: boolean) => !state),
+    [setIsPasswordVisible]
+  );
 
   if (multiline) {
     return (
@@ -96,6 +151,32 @@ const UHCInput: React.FunctionComponent<IProps> = ({
               }}
             ></SDatePicker>
           </SDateContainer>
+          {error && <SError>{error}</SError>}
+        </>
+      );
+    } else if (format === "password") {
+      return (
+        <>
+          <SContainer isFocused={isFocused} error={error}>
+            <SLabel isFocused={isFocused} value={value}>
+              {placeholder}
+            </SLabel>
+            <SInput
+              type={isPasswordVisible ? "text" : "password"}
+              value={value}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
+              onChange={(event) => setValue(event.target.value)}
+              name={name}
+            ></SInput>
+            <SIcon onClick={togglePasswordVisibility}>
+              {isPasswordVisible ? (
+                <ShowIcon size={"small"} />
+              ) : (
+                <HideIcon size={"small"} />
+              )}
+            </SIcon>
+          </SContainer>
           {error && <SError>{error}</SError>}
         </>
       );
