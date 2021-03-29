@@ -33,7 +33,7 @@ import {
   IconSize,
 } from "../icons";
 
-type IconName =
+export type IconName =
   | "search"
   | "view"
   | "more"
