@@ -1,0 +1,138 @@
+import { css } from "@emotion/core";
+import styled from "@emotion/styled";
+import theme from "uhc-themes";
+
+interface ILabelProps {
+  isFocused: boolean;
+}
+
+export const SWrapper = styled.div`
+  width: 100%;
+  position: relative;
+`;
+
+export const SInput = styled.input`
+  width: 100%;
+  outline: none;
+  padding: 0.5rem;
+  font-size: 14px;
+
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 300;
+  border-radius: 8px;
+  padding-left: 1rem;
+  border: none;
+  outline: none;
+
+  &[type="date"][value=""]::-webkit-datetime-edit-text {
+    color: transparent;
+  }
+  &[type="date"][value=""]::-webkit-datetime-edit-month-field {
+    color: transparent;
+  }
+  &[type="date"][value=""]::-webkit-datetime-edit-day-field {
+    color: transparent;
+  }
+
+  &[type="date"][value=""]::-webkit-datetime-edit-year-field {
+    color: transparent;
+  }
+
+  color: black;
+`;
+
+export const SExternalContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1px;
+  background: linear-gradient(
+    to right,
+    ${theme.color.primary},
+    ${theme.color.secondary}
+  );
+  position: relative;
+  border-radius: 8px;
+`;
+
+export const SInternalContainer = styled.input`
+  width: 100%;
+  outline: none;
+  padding: 0.5rem;
+  font-size: 14px;
+  background: white;
+
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  border-radius: 8px;
+  padding-left: 1rem;
+  border: none;
+  outline: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+`;
+
+export const SText = styled.p`
+  margin: 0;
+  position: absolute;
+  left: 0;
+  padding-left: 1rem;
+  color: black;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  pointer-events: none;
+  transform: translateY(0);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: inherit;
+`;
+export const SIcon = styled.div`
+  position: absolute;
+  right: 0;
+  padding-right: 1rem;
+  cursor: pointer;
+  transform: translateY(0);
+  display: flex;
+  align-items: center;
+`;
+
+export const SLabel = styled.label<ILabelProps>`
+  background: white;
+  position: absolute;
+  left: 0;
+  padding: 0 5px;
+  color: grey;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  pointer-events: none;
+  margin: 0;
+  margin-left: 1rem;
+  transform: translateY(0);
+  transition: all 0.15s ease-out;
+  ${(props) =>
+    props.isFocused &&
+    css`
+      transform: translateY(-140%);
+      font-size: 10px;
+    `};
+`;
+
+export const SOptionsList = styled.div`
+  position: absolute;
+  padding: 3px;
+  z-index: 5;
+  width: 100%;
+  max-height: 150px;
+  overflow-y: scroll;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid ${theme.color.lightgray};
+  border-top: none;
+`;
