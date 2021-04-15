@@ -52,6 +52,7 @@ interface IProps {
   format?: InputTypes;
   name?: string;
   defaultValue?: string;
+  disabled?: boolean;
 }
 
 const UHCInput: React.FunctionComponent<IProps> = ({
@@ -62,6 +63,7 @@ const UHCInput: React.FunctionComponent<IProps> = ({
   format,
   name,
   defaultValue,
+  disabled,
 }) => {
   // Variables
   const [value, setValue] = useState<string>("");
@@ -108,6 +110,7 @@ const UHCInput: React.FunctionComponent<IProps> = ({
             onBlur={() => setIsFocused(false)}
             onChange={(event) => setValue(event.target.value)}
             name={name}
+            disabled={disabled}
           ></STextArea>
           <SLabel isFocused={isFocused} value={value}>
             {placeholder}
@@ -141,6 +144,7 @@ const UHCInput: React.FunctionComponent<IProps> = ({
                       onBlur={() => setIsFocused(false)}
                       onChange={(event) => setValue(event.target.value)}
                       name={name}
+                      disabled={disabled}
                     ></SInput>
                   </SContainer>
                   {error && <SError>{error}</SError>}
@@ -168,6 +172,7 @@ const UHCInput: React.FunctionComponent<IProps> = ({
               onBlur={() => setIsFocused(false)}
               onChange={(event) => setValue(event.target.value)}
               name={name}
+              disabled={disabled}
             ></SInput>
             <SIcon onClick={togglePasswordVisibility}>
               {isPasswordVisible ? (
@@ -184,7 +189,7 @@ const UHCInput: React.FunctionComponent<IProps> = ({
       return (
         <>
           <SContainer isFocused={isFocused} error={error}>
-            <SLabel isFocused={isFocused} value={value}>
+            <SLabel isFocused={isFocused} value={value} disabled={disabled}>
               {placeholder}
             </SLabel>
             <SInput
@@ -194,6 +199,7 @@ const UHCInput: React.FunctionComponent<IProps> = ({
               onBlur={() => setIsFocused(false)}
               onChange={(event) => setValue(event.target.value)}
               name={name}
+              disabled={disabled}
             ></SInput>
           </SContainer>
           {error && <SError>{error}</SError>}

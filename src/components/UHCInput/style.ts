@@ -19,6 +19,11 @@ interface IContainerProps {
 interface ILabelProps {
   isFocused: boolean;
   value: string;
+  disabled?: boolean;
+}
+
+interface IInputProps {
+  disabled?: boolean;
 }
 
 export const SContainer = styled.div<IContainerProps>`
@@ -52,7 +57,9 @@ export const SDateContainer = styled.div<IContainerProps>`
   }
 `;
 
-export const SInput = styled.input`
+export const SInput = styled.input<IInputProps>`
+  background: ${(props) =>
+    props.disabled ? `${theme.color.lightgray}` : `white`};
   width: 100%;
   outline: none;
   padding: 0.5rem;
@@ -108,7 +115,8 @@ export const STextArea = styled.textarea`
 `;
 
 export const SLabel = styled.label<ILabelProps>`
-  background: white;
+  background: ${(props) =>
+    props.disabled ? `${theme.color.lightgray}` : `white`};
   position: absolute;
   left: 0;
   padding: 0 5px;
@@ -121,10 +129,11 @@ export const SLabel = styled.label<ILabelProps>`
   transition: all 0.15s ease-out;
   margin: 0;
   margin-left: 1rem;
+  border-radius: 4px;
   ${(props) =>
     (props.isFocused || props.value !== "") &&
     css`
-      transform: translateY(-140%);
+      transform: translateY(-135%);
       font-size: 10px;
     `};
 `;

@@ -23,6 +23,13 @@ export default {
       description: "Shows error under input",
       control: "text",
     },
+    disabled: {
+      description: "Defines if the input has writing permissions",
+      table: { defaultValue: { summary: "false" } },
+      control: {
+        type: "boolean",
+      },
+    },
     format: {
       description: "Defines the type of the input",
       table: { defaultValue: { summary: "text" } },
@@ -79,4 +86,11 @@ DefaultValue.args = {
   placeholder: "Default value",
   getValue: (value) => {},
   defaultValue: "This is a default value",
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  placeholder: "Disabled",
+  getValue: (value) => {},
+  disabled: true,
 };
