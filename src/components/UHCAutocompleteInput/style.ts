@@ -4,6 +4,11 @@ import theme from "uhc-themes";
 
 interface ILabelProps {
   isFocused: boolean;
+  disabled?: boolean;
+}
+
+interface IInputProps {
+  disabled?: boolean;
 }
 
 export const SWrapper = styled.div`
@@ -11,7 +16,10 @@ export const SWrapper = styled.div`
   position: relative;
 `;
 
-export const SInput = styled.input`
+export const SInput = styled.input<IInputProps>`
+  background: ${(props) =>
+    props.disabled ? `${theme.color.lightgray}` : `white`};
+
   width: 100%;
   outline: none;
   padding: 0.5rem;
@@ -103,7 +111,8 @@ export const SIcon = styled.div`
 `;
 
 export const SLabel = styled.label<ILabelProps>`
-  background: white;
+  background: ${(props) =>
+    props.disabled ? `${theme.color.lightgray}` : `white`};
   position: absolute;
   left: 0;
   padding: 0 5px;

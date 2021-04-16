@@ -9,7 +9,7 @@ import {
 } from "./style";
 
 import { FindIcon } from "../icons";
-import UHCSelectItem from "./UHCSelectItem";
+import UHCSelectItem from "../UHCSelect/UHCSelectItem";
 
 interface ISelectItem {
   label: string;
@@ -21,6 +21,7 @@ interface IProps {
   data: ISelectItem[];
   defaultValue?: ISelectItem;
   getValue?: (value: string) => void;
+  disabled?: boolean;
 }
 
 const DEFAULT_EMPTY_OPTION = { label: "", value: "" };
@@ -30,6 +31,7 @@ const UHCAutocompleteInput: React.FunctionComponent<IProps> = ({
   defaultValue,
   data,
   getValue,
+  disabled,
 }) => {
   const [selectedValue, setSelectedValue] = useState<ISelectItem>(
     defaultValue ? defaultValue : DEFAULT_EMPTY_OPTION
@@ -47,22 +49,27 @@ const UHCAutocompleteInput: React.FunctionComponent<IProps> = ({
   }, [selectedValue]);
 
   useEffect(() => {
-    const filteredData = data.filter((item) => item.label.includes(value));
+    const filteredData = data.filter((item) =>
+      item.label.toLowerCase().includes(value.toLowerCase())
+    );
     setFiltareableData(filteredData);
   }, [value]);
 
   return (
     <SWrapper>
       <SExternalContainer onClick={() => setIsListVisible(!isListVisible)}>
-        <SLabel isFocused={isFocused || value !== ""}>{label}</SLabel>
+        <SLabel isFocused={isFocused || value !== ""} disabled={disabled}>
+          {label}
+        </SLabel>
         <SInput
           value={value}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           onChange={(event) => setValue(event.target.value)}
+          disabled={disabled}
         ></SInput>
         {selectedValue === DEFAULT_EMPTY_OPTION && (
-          <SIcon >
+          <SIcon>
             <FindIcon size={"small"} />
           </SIcon>
         )}

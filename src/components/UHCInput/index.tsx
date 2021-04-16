@@ -46,7 +46,7 @@ type InputTypes =
 
 interface IProps {
   placeholder: string;
-  getValue: (value: string) => void;
+  getValue?: (value: string) => void;
   multiline?: boolean;
   error?: string;
   format?: InputTypes;
@@ -86,7 +86,9 @@ const UHCInput: React.FunctionComponent<IProps> = ({
    * Returns the input's value on change.
    */
   useEffect(() => {
-    getValue(value);
+    if (getValue) {
+      getValue(value);
+    }
   }, [value]);
 
   // Functions
