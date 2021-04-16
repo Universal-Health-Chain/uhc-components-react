@@ -39,10 +39,10 @@ const UHCAutocompleteInput: React.FunctionComponent<IProps> = ({
   const [isListVisible, setIsListVisible] = useState<boolean>(false);
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [value, setValue] = useState<string>("");
-  const [filtareableData, setFiltareableData] = useState<ISelectItem[]>(data);
+  const [filtareableData, setFiltareableData] = useState<ISelectItem[]>([]);
 
   /**
-   * º Verify the item label and the input's 
+   * º Verify the item label and the input's
    * º value existance before
    * º filtering.
    */
@@ -54,6 +54,10 @@ const UHCAutocompleteInput: React.FunctionComponent<IProps> = ({
     return false;
   };
 
+  useEffect(() => {
+    setFiltareableData(data);
+  }, [data]);
+  
   useEffect(() => {
     if (getValue) getValue(selectedValue.value);
   }, [selectedValue]);
