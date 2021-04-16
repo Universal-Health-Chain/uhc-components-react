@@ -40,6 +40,20 @@ const UHCAutocompleteInput: React.FunctionComponent<IProps> = ({
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const [value, setValue] = useState<string>("");
   const [filtareableData, setFiltareableData] = useState<ISelectItem[]>(data);
+
+  /**
+   * º Verify the item label and the input's 
+   * º value existance before
+   * º filtering.
+   */
+  const assertAndfilterItem = (item: ISelectItem, value: string): boolean => {
+    if (item && item.label && value) {
+      return item.label.toLowerCase().includes(value.toLowerCase());
+    }
+
+    return false;
+  };
+
   useEffect(() => {
     if (getValue) getValue(selectedValue.value);
   }, [selectedValue]);
@@ -49,8 +63,8 @@ const UHCAutocompleteInput: React.FunctionComponent<IProps> = ({
   }, [selectedValue]);
 
   useEffect(() => {
-    const filteredData = data.filter((item) =>
-      item.label.toLowerCase().includes(value.toLowerCase())
+    const filteredData = data.filter((item: ISelectItem) =>
+      assertAndfilterItem(item, value)
     );
     setFiltareableData(filteredData);
   }, [value]);
